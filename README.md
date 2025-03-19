@@ -42,3 +42,29 @@ index.mjs:618 Uncaught TypeError: Cannot read properties of null (reading 'ce')
     at patch (chunk-3SZSTCRY.js?v=05012731:6782:11)
     at mountChildren (chunk-3SZSTCRY.js?v=05012731:7014:7)
 ```
+
+## How to fix
+
+https://vite.dev/guide/build#library-mode
+
+@test/ui/vite.config.ts
+
+```
+{
+  build: {
+    ……
+    rollupOptions: {
+      // make sure to externalize deps that shouldn't be bundled
+      // into your library
+      external: ['vue'],
+      output: {
+        // Provide global variables to use in the UMD build
+        // for externalized deps
+        globals: {
+          vue: 'Vue',
+        },
+      },
+    },
+  }
+}
+```
