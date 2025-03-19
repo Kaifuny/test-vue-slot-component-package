@@ -20,12 +20,12 @@ import { Button1, Button2 } from '@test/ui';
 <template>
   <div>
     <!-- <Button1></Button1> -->
-    <Button2>bbb</Button2>
+    <Button2></Button2>
   </div>
 </template>
 ```
 
-Button1 is not working, but Button2 is working.
+Button2 is not working, but Button1 is working.
 
 the error message is
 
